@@ -64,7 +64,7 @@ jobs:
         sleep 5
         export MAVEN_OPTS="-Xms128m -Xmx1024m"
         ./bootstrap.sh java
-        vn clean install --threads 1C -Dmaven.javadoc.skip=true -Dmaven.source.skip=true -DskipTests
+        mvn clean install --threads 1C -Dmaven.javadoc.skip=true -Dmaven.source.skip=true -DskipTests
         cmake .
         make -j 9
         make install/fast
