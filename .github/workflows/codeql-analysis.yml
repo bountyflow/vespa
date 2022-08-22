@@ -56,7 +56,7 @@ jobs:
       run: |
         sudo apt remove -y *temurin* *adoptopenjdk* *openjdk*
         wget -q https://download.oracle.com/java/18/latest/jdk-18_linux-x64_bin.deb
-        sudo apt install -y libc6-x32 libc6-i386
+        sudo apt install -y libc6-x32 libc6-i386 build-essential
         sudo dpkg -i jdk-18_linux-x64_bin.deb        
         sudo update-alternatives --install /usr/bin/java java /usr/lib/jvm/jdk-18/bin/java 1
         export JAVA_HOME=/usr/lib/jvm/jdk-18
@@ -65,9 +65,9 @@ jobs:
         export MAVEN_OPTS="-Xms128m -Xmx1024m"
         ./bootstrap.sh java
         mvn clean install --threads 1C -Dmaven.javadoc.skip=true -Dmaven.source.skip=true -DskipTests
-        cmake3 .
-        make -j 9
-        make install/fast
+        #cmake .
+        #make -j 9
+        #make install/fast
 
 
     # Autobuild attempts to build any compiled languages  (C/C++, C#, or Java).
