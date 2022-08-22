@@ -54,9 +54,10 @@ jobs:
 
     - name: Clean install dependencies and build
       run: |
-        ls -lah /etc/alternatives/java
-        ls -lah /usr/bin/java
-        rm -rf /etc/alternatives/java /usr/bin/java
+        sudo apt remove -y temurin-*
+        #ls -lah /etc/alternatives/java
+        #ls -lah /usr/bin/java
+        #rm -rf /etc/alternatives/java /usr/bin/java
         wget https://download.oracle.com/java/18/latest/jdk-18_linux-x64_bin.deb
         sudo apt install -y libc6-x32 libc6-i386
         sudo dpkg -i jdk-18_linux-x64_bin.deb        
