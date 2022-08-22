@@ -56,7 +56,8 @@ jobs:
       run: |
         sudo apt remove -y *temurin* *adoptopenjdk* *openjdk*
         wget -q https://download.oracle.com/java/18/latest/jdk-18_linux-x64_bin.deb
-        sudo apt install -y libc6-x32 libc6-i386 build-essential cmake libgtest-dev
+        sudo apt install -y libc6-x32 libc6-i386 build-essential cmake libgtest-dev pybind11-dev python3-pip
+        sudo pip3 install pybind11
         (cd /usr/src/googletest && sudo cmake . && sudo cmake --build . --target install)        
         sudo dpkg -i jdk-18_linux-x64_bin.deb        
         sudo update-alternatives --install /usr/bin/java java /usr/lib/jvm/jdk-18/bin/java 1
@@ -68,7 +69,6 @@ jobs:
         mvn clean install --threads 1C -Dmaven.javadoc.skip=true -Dmaven.source.skip=true -DskipTests
         cmake .
         make -j 9
-        make install/fast
 
 
     # Autobuild attempts to build any compiled languages  (C/C++, C#, or Java).
