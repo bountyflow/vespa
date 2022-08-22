@@ -55,15 +55,11 @@ jobs:
     - name: Clean install dependencies and build
       run: |
         sudo apt remove -y *temurin* *adoptopenjdk* *openjdk*
-        #ls -lah /etc/alternatives/java
-        #ls -lah /usr/bin/java
-        sudo rm -rf /etc/alternatives/java /usr/bin/java
-        wget https://download.oracle.com/java/18/latest/jdk-18_linux-x64_bin.deb
+        wget -q https://download.oracle.com/java/18/latest/jdk-18_linux-x64_bin.deb
         sudo apt install -y libc6-x32 libc6-i386
         sudo dpkg -i jdk-18_linux-x64_bin.deb        
         sudo update-alternatives --install /usr/bin/java java /usr/lib/jvm/jdk-18/bin/java 1
-        java -version
-        java -version
+        export JAVA_HOME=/usr/lib/jvm/jdk-18
         java -version
         sleep 5
         export MAVEN_OPTS="-Xms128m -Xmx1024m"
