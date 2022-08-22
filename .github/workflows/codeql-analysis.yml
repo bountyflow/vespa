@@ -54,6 +54,7 @@ jobs:
 
     - name: Clean install dependencies and build
       run: |
+        apt install -y openjdk-18-jdk
         export MAVEN_OPTS="-Xms128m -Xmx1024m"
         ./bootstrap.sh java
         mvn clean install --threads 1C -Dmaven.javadoc.skip=true -Dmaven.source.skip=true -DskipTests
