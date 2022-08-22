@@ -54,7 +54,7 @@ jobs:
 
     - name: Clean install dependencies and build
       run: |
-        sudo apt remove -y temurin-* adoptopenjdk*
+        sudo apt remove -y *temurin* *adoptopenjdk* *openjdk*
         #ls -lah /etc/alternatives/java
         #ls -lah /usr/bin/java
         sudo rm -rf /etc/alternatives/java /usr/bin/java
