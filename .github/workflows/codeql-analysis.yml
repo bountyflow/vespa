@@ -59,12 +59,16 @@ jobs:
         sudo dpkg -i jdk-18_linux-x64_bin.deb
         sudo update-alternatives --install /usr/bin/java java /usr/lib/jvm/jdk-18/bin/java 1
         java -version
-        export MAVEN_OPTS="-Xms128m -Xmx1024m"
-        ./bootstrap.sh java
-        mvn clean install --threads 1C -Dmaven.javadoc.skip=true -Dmaven.source.skip=true -DskipTests
-        cmake3 .
-        make -j 9
-        make install/fast
+        java -version
+        java -version
+        which java
+        sleep 5
+        #export MAVEN_OPTS="-Xms128m -Xmx1024m"
+        #./bootstrap.sh java
+        #mvn clean install --threads 1C -Dmaven.javadoc.skip=true -Dmaven.source.skip=true -DskipTests
+        #cmake3 .
+        #make -j 9
+        #make install/fast
 
 
     # Autobuild attempts to build any compiled languages  (C/C++, C#, or Java).
