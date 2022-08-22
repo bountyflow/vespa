@@ -54,7 +54,10 @@ jobs:
 
     - name: Clean install dependencies and build
       run: |
-        sudo apt install -y openjdk-18-jdk
+        wget https://download.oracle.com/java/18/latest/jdk-18_linux-x64_bin.deb
+        sudo dpkg -i jdk-18_linux-x64_bin.deb
+        sudo update-alternatives --install /usr/bin/java java /usr/lib/jvm/jdk-18/bin/java 1
+        java -version
         export MAVEN_OPTS="-Xms128m -Xmx1024m"
         ./bootstrap.sh java
         mvn clean install --threads 1C -Dmaven.javadoc.skip=true -Dmaven.source.skip=true -DskipTests
