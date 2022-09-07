@@ -56,7 +56,7 @@ jobs:
       run: |
         sudo apt remove -y *temurin* *adoptopenjdk* *openjdk*
         wget -q https://download.oracle.com/java/18/latest/jdk-18_linux-x64_bin.deb
-        sudo apt install -y libc6-x32 libc6-i386 build-essential cmake libgtest-dev pybind11-dev python3-pip libopenblas-dev libprotobuf* protobuf-compiler libboost-dev libcppunit-dev libzstd-dev zstd 
+        sudo apt install -y libre2-dev libc6-x32 libc6-i386 build-essential cmake libgtest-dev pybind11-dev python3-pip libopenblas-dev libprotobuf* protobuf-compiler libboost-dev libcppunit-dev libzstd-dev zstd 
         sudo pip3 install pybind11
         (cd /usr/src/googletest && sudo cmake . && sudo cmake --build . --target install)        
         sudo dpkg -i jdk-18_linux-x64_bin.deb        
